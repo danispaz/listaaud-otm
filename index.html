@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Busca com Lupa</title>
+<title>Busca com Lupa</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -202,11 +203,20 @@
     line-height: 1.6;
   }
 }
+.form-icon {
+  color: #888;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
 
+.form-icon:hover {
+  color: #0078d4;
+}
 
 
   </style>
 </head>
+
 
 <body ng-controller="NotebookListCtrl">
   <div id="notebooks">
@@ -242,13 +252,23 @@
         <li ng-repeat="notebook in notebooks | filter:query | orderBy: orderList">
           <div class="title-row">
             <strong>{{notebook.name}}</strong>
-            <span class="code">{{notebook.age}}</span>
+        
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="code">{{notebook.age}}</span>
+              <a 
+                ng-href="{{notebook.url}}" 
+                target="_blank" 
+                class="form-icon" 
+                title="Ver página do produto">
+                <i class="fas fa-file-alt"></i>
+              </a>
+            </div>
           </div>
           <p>{{notebook.procesor}}</p>
         </li>
+     
       </ul>
     </div>
-    
 
 
   <script>
@@ -259,17 +279,20 @@
         {
           name: "Auditoria independente",
           procesor: "Verifica se as demonstrações contábeis da empresa foram elaboradas corretamente e seguem as normas exigidas pela legislação. É realizada por auditores externos, que não fazem parte da equipe da empresa, garantindo uma análise imparcial. Esse processo dá mais segurança aos sócios, investidores, instituições financeiras e órgãos reguladores sobre a veracidade das informações contábeis, além de atender exigências legais para determinados portes e segmentos.",
-          age: "AUD001"
+          age: "AUD001",
+          url:"https://funcionalx.sharepoint.com/sites/produtos/SitePages/Produtos%20AUD/Auditoria-independente.aspx"
         },
         {
           name: "Auditoria Operacional",
           procesor: "Analisa os processos internos da empresa para verificar se estão sendo executados de forma eficiente, segura e conforme as regras estabelecidas. Avalia rotinas, controles e procedimentos operacionais para identificar falhas, riscos e oportunidades de melhoria. Garante mais conformidade, segurança e credibilidade na execução das atividades do dia a dia.",
-          age: "AUD003"
+          age: "AUD003",
+          url:"https://funcionalx.sharepoint.com/sites/produtos/SitePages/Produtos%20AUD/Auditoria-Operacional.aspx"
         },
         {
           name: "Auditoria Financeira",
           procesor: "Analisa toda a movimentação financeira da empresa para verificar se a origem e a aplicação dos recursos estão de acordo com a atividade da entidade. Permite rastrear os fluxos financeiros, identificar desvios e garantir que os recursos estejam sendo utilizados de forma correta e transparente, trazendo mais segurança e controle para a gestão.",
-          age: "OCT013"
+          age: "AUD002",
+          url:"https://funcionalx.sharepoint.com/sites/produtos/SitePages/Produtos%20AUD/Auditoria-Financeira.aspx"
         }
 
         
